@@ -1,0 +1,5 @@
+### Beleggingen ophalen.
+GET http://localhost:8080/case/rekening/rekening-1
+
+### Verwachte waarde berekenen.
+GET http://localhost:8080/case/waarde/casper@voorbeeld.nl/65

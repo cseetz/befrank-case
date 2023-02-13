@@ -1,0 +1,33 @@
+<form class="my-form" #rekeningForm=ngForm (ngSubmit)="submitRekening(rekeningForm.value)">
+  <mat-card class="pa-6 height-350 width-300">
+    <mat-card-title class="py-2">Rekening inzicht</mat-card-title>
+    <mat-card-content>
+      <p>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Rekeningnummer</mat-label>
+          <input matInput required ngModel name="nummer" #nummer="ngModel"
+                 class="form-control"
+                 placeholder="Rekeningnummer"
+                 type="text">
+          <mat-error *ngIf="nummer.invalid">Veld is verplicht</mat-error>
+        </mat-form-field>
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="pl-1-5">
+      <button mat-raised-button type="submit" color="primary" [disabled]="!rekeningForm.valid" class="full-width">
+        Ophalen
+      </button>
+    </mat-card-actions>
+    <div *ngIf="beleggingen.length > 0">
+      <p class="bold-text">Uw bijhorende beleggingen:</p>
+      <hr/>
+      <ul>
+        <li
+          *ngFor="let belegging of beleggingen">{{ belegging.fonds.toUpperCase() }}
+          twv {{ formatterNumberToEuro(belegging.waarde) }}</li>
+      </ul>
+      <hr/>
+      <p class="waarde">{{getTotaleBeleggingsWaarde()}}</p>
+    </div>
+  </mat-card>
+</form>

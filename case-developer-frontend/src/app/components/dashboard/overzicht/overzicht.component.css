@@ -1,0 +1,33 @@
+.py-2 {
+  padding: 8px 0;
+}
+
+.pa-6 {
+  padding: 24px;
+}
+
+.pl-1-5 {
+  padding-left: 6px;
+}
+
+.height-350 {
+  height: 350px;
+}
+
+.width-300 {
+  width: 300px;
+}
+
+.waarde {
+  text-align: right;
+  font-size: 26px;
+  font-weight: lighter;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.bold-text {
+  font-weight: bold;
+}

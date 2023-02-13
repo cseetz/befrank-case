@@ -1,0 +1,35 @@
+<div>
+  <form class="my-form" #plannerForm=ngForm (ngSubmit)="submitPlanner(plannerForm.value)">
+    <mat-card class="pa-6 height-350 width-300">
+      <mat-card-title class="py-2">Pensioenplanner</mat-card-title>
+      <mat-card-content>
+        <p>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput required ngModel name="email" #email="ngModel" class="form-control" placeholder="Email"
+                   type="text">
+            <mat-error *ngIf="email.invalid">Veld is verplicht</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Gewenste pensioenleeftijd</mat-label>
+            <input matInput required ngModel name="pensioenleeftijd" #pensioenleeftijd="ngModel"
+                   class="form-control" placeholder="68" type="number">
+            <mat-error *ngIf="pensioenleeftijd.invalid">Veld is verplicht</mat-error>
+          </mat-form-field>
+        </p>
+      </mat-card-content>
+      <mat-card-actions class="pl-1-5">
+        <button mat-raised-button type="submit" color="primary" [disabled]="!plannerForm.valid" class="full-width">
+          Bereken
+        </button>
+      </mat-card-actions>
+      <div *ngIf="pensioenWaarde.length > 0">
+        <p class="bold-text">Uw opgebouwde pensioenwaarde:</p>
+        <hr/>
+        <p class="waarde">{{pensioenWaarde}}</p>
+      </div>
+    </mat-card>
+  </form>
+</div>
